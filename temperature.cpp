@@ -16,11 +16,35 @@ void welcome(){
     cout << endl;
     cout << "Input: " << endl;
 }
+// Celcius to Fahrenheit
+double cf(double x){
+    return ((x*1.8)+32);
+}
+// Fahrenheit to Celcius
+double fc(double x){
+    return ((x-32)/1.8);
+}
+// Kelvin to Celcius
+double kc(double x){
+    return (x - 273.15);
+}
+// Kelvin to Fahrenheit
+double kf(double x){
+    return ((1.8*x) - 459.67);
+}
+// Celsius to Kelvin
+double ck(double x){
+    return (x + 273.15);
+}
+// Fahrenheit to Kelvin
+double fk(double x){
+    return ((x - 32)/1.8 + 273.15);
+}
 
 void goback(){
     string x;
     cout << endl;
-    cout << "Tpye anything to go back: " << endl;
+    cout << "Type anything to go back: " << endl;
     cin >> x;
     cout << endl;
     welcome();
@@ -37,23 +61,17 @@ void inputbug(){
     cin.ignore(1000, '\n');
 }
 
-void temperature(double x, double& a, double& b, double& y, double& j, double& k, double& i){
+/*void temperature(double x, double& a, double& b, double& y, double& j, double& k, double& i){
     a = (x*1.8)+32;
     b = (x-32)/1.8;
     y = x - 273.15;
     j = (1.8*x) - 459.67;
     k =  x + 273.15;
     i = (x - 32)/1.8 + 273.15;
-}
+}*/
 
 int main(){
     double value;
-    double a = 0.0;
-    double b = 0.0;
-    double y = 0.0;
-    double j = 0.0;
-    double k = 0.0;
-    double i = 0.0;
     int userinput;
     welcome();
     while(true){
@@ -65,38 +83,32 @@ int main(){
         else{
             if(userinput == 1){
                 valueinput(value);
-                temperature(value,a,b,y,j,k,i);
-                cout << a << " fahrenheit" << endl;
+                cout << cf(value) << " Fahrenheit" << endl;
                 goback();
             }
             else if(userinput == 2){
                 valueinput(value);
-                temperature(value,a,b,y,j,k,i);
-                cout << b << " celsius" << endl;
+                cout << fc(value) << " celsius" << endl;
                 goback();
             }
             else if(userinput == 3){
                 valueinput(value);
-                temperature(value,a,b,y,j,k,i);
-                cout << y << " celsius" << endl;
+                cout << kc(value) << " celsius" << endl;
                 goback();
             }
             else if(userinput == 4){
                 valueinput(value);
-                temperature(value,a,b,y,j,k,i);
-                cout << j << "fahrenheit" << endl;
+                cout << kf(value) << "fahrenheit" << endl;
                 goback();
             }
             else if(userinput == 5){
                 valueinput(value);
-                temperature(value,a,b,y,j,k,i);
-                cout << k << " Kelvin" << endl;
+                cout << ck(value) << " Kelvin" << endl;
                 goback();
             }
             else if(userinput == 6){
                 valueinput(value);
-                temperature(value,a,b,y,j,k,i);
-                cout << i << " Kelvin" << endl;
+                cout << fk(value) << " Kelvin" << endl;
                 goback();
             }
             else if(userinput == 7){
